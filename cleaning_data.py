@@ -18,7 +18,7 @@ def getGenre(str):
     return list(ast.literal_eval(str).values())
 
 # Reading the dataset and assigning labels for each column
-books = pd.read_csv(os.getcwd() + "/booksummaries.txt", sep='\t', names=['Wiki_ID', 'Freebase_ID', 'Tite', 'Author', 'Pub_Date', 'Genre', 'Plot'])
+books = pd.read_csv(os.getcwd() + "/booksummaries.txt", sep='\t', names=['Wiki_ID', 'Freebase_ID', 'Title', 'Author', 'Pub_Date', 'Genre', 'Plot'])
 
 # Drop rows where subset = "null" and reset indexes
 books.dropna(subset = ['Genre'], inplace = True)
@@ -36,9 +36,10 @@ books['Genre'] = books['Genre'].apply(getGenre)
 
 # Verifying Data
 # Display the starting and ending five rows of dataset
-books.head()
-books.tail()
+# books.head()
+# books.tail()
 
 # Saving cleaned data
-# books.to_csv("booksummaries_cleaned.txt", sep=";", index=None, encoding="utf-8")
+# Include header=None if you do not wish to save column headings
+books.to_csv("booksummaries_cleaned.txt", sep=";", index=None, encoding="utf-8")
 
