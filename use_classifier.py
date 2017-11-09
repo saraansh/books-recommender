@@ -17,7 +17,7 @@ import pickle
 # Load Classifier
 classifier_new = open(os.getcwd() + "/knn_classifer.pickle","rb")
 classifier = pickle.load(classifier_new)
-
+classifier_new.close()
 
 # Code in the work to be done with the classifier
 # For example you can use a new X_test and Y_test
@@ -26,6 +26,3 @@ classifier = pickle.load(classifier_new)
 # or you could use it for generating new recommendations
 # based on the new inputs like in the previous example
 # distances, neighbor = classifier.neighbors(X_tests)
-
-
-classifier_new.close()

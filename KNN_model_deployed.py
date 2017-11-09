@@ -17,6 +17,7 @@ import os
 # Reading the dataset
 books = pd.read_csv(os.getcwd() + "/booksummaries_hot_encoded.txt", sep=';')
 
+# Split the dataset into its respective data and target values
 target = books.iloc[:,1:2]
 data = books.iloc[:,4:]
 
@@ -35,13 +36,13 @@ KNN.fit(X_Train, Y_Train)
 distances, neighbor = KNN.kneighbors(X_Test)
 
 # Sample test book
-# print(Y_Test[0])
+print(Y_Test[0])
 
 # n number of similar books for given sample 
 # print(neighbor[0])
 
 # Book names of similar books for given sample
-# print(Y_Train[neighbor[0]])
+print(Y_Train[neighbor[0]])
 
 # Saving the trained module
 import pickle
