@@ -35,14 +35,29 @@ KNN.fit(X_Train, Y_Train)
 
 distances, neighbor = KNN.kneighbors(X_Test)
 
+"""
 # Sample test book
 print(Y_Test[0])
 
+# Print the genre for Y_Test[0]
+for i in range(len(books['Title'])):
+    book = books['Title'][i]
+    if (book == Y_Test[0][0]):
+        print(books['Genre'][i])
+
 # n number of similar books for given sample 
-# print(neighbor[0])
+print(neighbor[0])
 
 # Book names of similar books for given sample
 print(Y_Train[neighbor[0]])
+
+# Print genre of all books
+for i in range(len(neighbor[0])):
+    for book in books['Title']:
+        if (book == Y_Train[neighbor[0]][i][0]):
+            print(book + "->" + books['Genre'][i])
+            break
+"""
 
 # Saving the trained module
 import pickle
